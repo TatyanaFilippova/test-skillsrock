@@ -3,7 +3,7 @@ function addTodo() {
   const value = document.getElementById("todo-value").value;
 
   // получаем элемент списка
-  var ul = document.getElementById("todo-list");
+  const ul = document.getElementById("todo-list");
 
   // создаем кнопку удаления элемента
   const buttonRemove = document.createElement("button");
@@ -11,7 +11,7 @@ function addTodo() {
   buttonRemove.innerHTML = "Удалить";
 
   // создаем элемент списка
-  var li = document.createElement("li");
+  const li = document.createElement("li");
   li.className = "todo-list-element";
 
   // добавляем к элементу списка новое todo и кнопку удаления

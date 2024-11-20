@@ -1,0 +1,19 @@
+.user-wrapper{
+  text-align: center;
+  margin: 20px;
+
+ 
+}
+
+.users-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+
+.name{
+  margin-bottom: 5px;
+}
+
+.email{
+  margin-bottom: 10px;}
