@@ -8,25 +8,32 @@ class Book {
 }
 class Library {
   constructor() {
-    this.books = {};
+    this._books = {};
   }
   addBook(book) {
-    this.books[book.isbn] = book;
+    this._books[book.isbn] = book;
   }
   borrowBook(isbn) {
-    if (!this.books[isbn]) throw Error("Такой книги нет");
-    if (this.books[isbn].status === "unavailable") {
+    //если такой книги нет, то ошибка
+    if (!this._books[isbn]) throw Error("Такой книги нет");
+    //если такая книга есть, но недоступна, вернем null
+    if (this._books[isbn].status === "unavailable") {
       return null;
     }
-    this.books[isbn].status = "unavailable";
-    return this.books[isbn];
+    //меняем статус книги перед выдачей
+    this._books[isbn].status = "unavailable";
+    //возвращаем книгу
+    return this._books[isbn];
   }
   returnBook(isbn) {
-    if (!this.books[isbn]) throw Error("Такой книги нет");
-    this.books[isbn].status = "available";
+    //если такой книги нет, выдаем ошибку
+    if (!this._books[isbn]) throw Error("Такой книги нет");
+    //меняем статус на доступный
+    this._books[isbn].status = "available";
   }
   listAvailableBooks() {
-    return Object.values(this.books).filter(
+    //возвращаем списком все доступные книги
+    return Object.values(this._books).filter(
       (item) => item.status === "available"
     );
   }
@@ -39,4 +46,5 @@ const book2 = new Book("jhi", "2", "2");
 library.addBook(book2)
 library.borrowBook("2")
 console.log(library.listAvailableBooks())
+
 
